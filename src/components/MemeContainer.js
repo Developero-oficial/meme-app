@@ -18,12 +18,15 @@ class MemeContainer extends React.Component {
   }
 
   render () {
-    if (this.state.isFetch) {
+    const { isFetch, memes } = this.state
+
+    if (isFetch) {
       return 'Loading...'
     }
 
-    const name = this.state.memes[0].displayName
-    return <Meme name={name} />
+    return (
+      memes.map((meme) => <Meme name={meme.displayName} key={meme.generatorID} />)
+    )
   }
 }
 
