@@ -5,25 +5,24 @@ class MemeContainer extends React.Component {
   constructor (props) {
     super(props)
 
-    console.log('constructor')
-
     this.state = {
-      name: 'name from state',
-      c: 1
+      memes: [],
+      isFetch: true,
     }
   }
 
   componentDidMount () {
-    console.log('mounted')
-    this.setState({ name: 'name from componentDidMount' })
-  }
-
-  componentDidUpdate () {
-    console.log('updated')
+    fetch('http://version1.api.memegenerator.net//Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=&apiKey=demo')
+      .then(response => response.json())
+      .then(memesJson => this.setState({ memes: memesJson.result, isFetch: false }))
   }
 
   render () {
-    const name = this.state.name
+    if (this.state.isFetch) {
+      return 'Loading...'
+    }
+
+    const name = this.state.memes[0].displayName
     return <Meme name={name} />
   }
 }
