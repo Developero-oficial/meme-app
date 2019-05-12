@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Meme from './Meme';
+import MemeContainer from './components/MemeContainer';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Meme name="devs" />, document.getElementById('root'));
+ReactDOM.render(<MemeContainer />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
