@@ -1,5 +1,6 @@
 import React from 'react'
 import Meme from './Meme'
+import { getMemesByPopular } from '../services/memes'
 
 class MemeContainer extends React.Component {
   constructor (props) {
@@ -11,10 +12,9 @@ class MemeContainer extends React.Component {
     }
   }
 
-  componentDidMount () {
-    fetch('http://version1.api.memegenerator.net//Generators_Select_ByPopular?pageIndex=0&pageSize=12&days=&apiKey=demo')
-      .then(response => response.json())
-      .then(memesJson => this.setState({ memes: memesJson.result, isFetch: false }))
+  async componentDidMount () {
+    const responseJson = await getMemesByPopular()
+    this.setState({ memes: responseJson.result, isFetch: false })
   }
 
   render () {
