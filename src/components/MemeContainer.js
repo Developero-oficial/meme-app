@@ -25,13 +25,17 @@ class MemeContainer extends React.Component {
     }
 
     return (
-      memes.map((meme) => <Meme
-        imageUrl={meme.imageUrl}
-        name={meme.displayName}
-        key={meme.generatorID}
-        ranking={meme.ranking}
-        totalVotesScore={meme.totalVotesScore}
-      />)
+      <section className="memes-container">
+        {
+          memes.map((meme) => <Meme
+            imageUrl={meme.imageUrl}
+            name={meme.displayName}
+            key={meme.generatorID}
+            ranking={meme.ranking}
+            totalVotesScore={meme.totalVotesScore}
+          />)
+        }
+      </section>
     )
   }
 }

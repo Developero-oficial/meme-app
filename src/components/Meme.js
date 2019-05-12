@@ -7,7 +7,7 @@ const Meme = ({
   ranking,
   totalVotesScore
 }) => (
-  <div>
+  <div className="single-meme">
     <h2>{name}</h2>
     <img src={imageUrl} alt={name} />
     <p>ranking: {ranking}</p>
