@@ -19,6 +19,10 @@ class MemeContainer extends React.Component {
     this.setState({ memes: responseJson.result, isFetch: false })
   }
 
+  handleSearch = (e) => {
+    console.log(e)
+  }
+
   render () {
     const { isFetch, memes } = this.state
 
@@ -29,7 +33,7 @@ class MemeContainer extends React.Component {
     return (
       <>
         <Title>Meme App</Title>
-        <Search />
+        <Search handleSearch={this.handleSearch} />
         <section className="memes-container">
           {
             memes.map((meme) => <Meme
