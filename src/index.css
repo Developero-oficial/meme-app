@@ -17,6 +17,27 @@ img {
     font-style: italic;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input, .search-btn {
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.search-input {
+    padding: 5px 8px;
+    width: calc(30% - 2em);
+    margin: 0 8px;
+}
+
+.search-btn {
+    padding: 5px;
+}
+
 .memes-container {
     display: flex;
     flex-wrap: wrap;
