@@ -1,5 +1,6 @@
 import React from 'react'
 import Meme from './Meme'
+import Title from './Title'
 import { getMemesByPopular } from '../services/memes'
 
 class MemeContainer extends React.Component {
@@ -25,17 +26,20 @@ class MemeContainer extends React.Component {
     }
 
     return (
-      <section className="memes-container">
-        {
-          memes.map((meme) => <Meme
-            imageUrl={meme.imageUrl}
-            name={meme.displayName}
-            key={meme.generatorID}
-            ranking={meme.ranking}
-            totalVotesScore={meme.totalVotesScore}
-          />)
-        }
-      </section>
+      <>
+        <Title>Meme App</Title>
+        <section className="memes-container">
+          {
+            memes.map((meme) => <Meme
+              imageUrl={meme.imageUrl}
+              name={meme.displayName}
+              key={meme.generatorID}
+              ranking={meme.ranking}
+              totalVotesScore={meme.totalVotesScore}
+            />)
+          }
+        </section>
+      </>
     )
   }
 }
