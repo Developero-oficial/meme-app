@@ -1,6 +1,5 @@
 import React from 'react'
 import Meme from './Meme'
-import Title from './Title'
 import Search from './Search'
 import { getMemesByPopular, getMemesBySearch } from '../services/memes'
 
@@ -27,14 +26,18 @@ class MemeContainer extends React.Component {
   render () {
     const { isFetch, memes } = this.state
 
-    if (isFetch) {
-      return 'Loading...'
-    }
-
     return (
       <>
-        <Title>Meme App</Title>
         <Search handleSearch={this.handleSearch} />
+
+        {
+          isFetch && 'Loading...'
+        }
+
+        {
+          (!isFetch && !memes.length) && 'No memes founded u.u try another search'
+        }
+
         <section className="memes-container">
           {
             memes.map((meme) => <Meme
