@@ -8,6 +8,13 @@ export async function getMemesByPopular () {
   return responseJson
 }
 
+export async function getMemesBySearch (q) {
+  const response = await fetch(`${baseUrl}/Generators_Search?q=${q}&pageIndex=0&pageSize=12&apiKey=${apiKey}`)
+  const responseJson = await response.json()
+  return responseJson
+}
+
 export default {
-  getMemesByPopular
+  getMemesByPopular,
+  getMemesBySearch
 }

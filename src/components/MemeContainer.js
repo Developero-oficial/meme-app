@@ -2,7 +2,7 @@ import React from 'react'
 import Meme from './Meme'
 import Title from './Title'
 import Search from './Search'
-import { getMemesByPopular } from '../services/memes'
+import { getMemesByPopular, getMemesBySearch } from '../services/memes'
 
 class MemeContainer extends React.Component {
   constructor (props) {
@@ -19,8 +19,9 @@ class MemeContainer extends React.Component {
     this.setState({ memes: responseJson.result, isFetch: false })
   }
 
-  handleSearch = (e) => {
-    console.log(e)
+  handleSearch = async (search) => {
+    const responseJson = await getMemesBySearch(search)
+    this.setState({ memes: responseJson.result })
   }
 
   render () {
